@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
-import { signUp } from '@/lib/auth-client';
+import { signUp, signIn } from '@/lib/auth-client';
 // import { Check } from "lucide-react";
 
 
@@ -25,6 +25,19 @@ const SignUpPage = () => {
 
 
     };
+
+    const handleGoogleSignIn = async () => {
+        const resData = await signIn.social({
+            provider: "google",
+        })
+        console.log("resData for HANDLER to sign up page", resData)
+    }
+
+    const handleGithubSignIn = async () => {
+        const resdata = await signIn.social({
+            provider: 'github'
+        })
+    }
 
     return (
         <div className=''>
@@ -97,7 +110,10 @@ const SignUpPage = () => {
                 </div>
             </Form>
 
+            <p className="text-sm text-gray-500 pl-4">Or</p>
 
+            <Button onClick={handleGoogleSignIn}>Sign In With Google</Button>
+            <Button onClick={handleGithubSignIn}>Sign In With Github</Button>
         </div>
     );
 };
