@@ -18,12 +18,10 @@ const SignUpPage = () => {
         const { data: resData, error } = await signUp.email({
             name: data.name,
             email: data.email,
-            password: data.password
+            password: data.password,
+            callbackURL: "/dashboard"
         });
-
-
-
-
+        console.log('After sign up', resData, error);
     };
 
     const handleGoogleSignIn = async () => {

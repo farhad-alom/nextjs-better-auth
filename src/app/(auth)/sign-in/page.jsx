@@ -4,7 +4,7 @@ import { signIn } from "@/lib/auth-client";
 // import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField, InputGroup } from "@heroui/react";
 import { useState } from "react";
-
+import Link from "next/link";
 
 
 const SignInPage = () => {
@@ -112,6 +112,10 @@ const SignInPage = () => {
                     </Button>
                 </div>
             </Form>
+
+            <p><small>Forgot Password ? <Link
+                className="text-blue-400 underline"
+                href="/forgot-password">Click Here</Link></small></p>
         </div>
     );
 };
